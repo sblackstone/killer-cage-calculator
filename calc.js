@@ -2,16 +2,16 @@
 
 
 
-function find(target, targetCount, stack = [], sum = 0, digit = 9) {
+function find(target, targetCount, stack = [], sum = 0, digit = 1) {
     if (stack.length == targetCount && sum == target) {
         console.log(stack);
         return;
     }
-    if (digit == 0 || stack.length > targetCount || sum > target) {
+    if (digit == 10 || stack.length > targetCount || sum > target) {
         return;
     }
-    find(target, targetCount, stack,             sum,       digit - 1)
-    find(target, targetCount, [digit, ...stack], sum+digit, digit - 1)
+    find(target, targetCount, stack,             sum,       digit + 1)
+    find(target, targetCount, [...stack, digit], sum+digit, digit + 1)
 
 }
 
